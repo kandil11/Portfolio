@@ -14,6 +14,7 @@ const projects = [
     year: '2024',
     category: 'AWARD-WINNING',
     gridClass: 'lg:col-span-8 lg:row-span-2',
+    link: 'https://osvisualizer.vercel.app/',
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const projects = [
     year: '2024',
     category: 'FULL-STACK',
     gridClass: 'lg:col-span-4 lg:row-span-1',
+    link: 'https://db-project-alpha.vercel.app/',
   },
   {
     id: 3,
@@ -166,10 +168,39 @@ export default function Projects() {
                       height: hoveredProject === project.id ? 'auto' : 0,
                     }}
                     transition={{ duration: 0.3 }}
-                    className="text-gray-300 leading-relaxed overflow-hidden"
+                    className="text-gray-300 leading-relaxed overflow-hidden mb-4"
                   >
                     {project.description}
                   </motion.p>
+
+                  {/* Live Demo Button - visible on hover if link exists */}
+                  {project.link && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{
+                        opacity: hoveredProject === project.id ? 1 : 0,
+                        height: hoveredProject === project.id ? 'auto' : 0,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden mb-4"
+                    >
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className={`inline-block px-4 py-2 border-2 mono-label text-xs transition-all duration-300 hover:scale-105 ${
+                          project.color === 'neon-cyan'
+                            ? 'border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-darker-charcoal'
+                            : project.color === 'neon-magenta'
+                            ? 'border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-darker-charcoal'
+                            : 'border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-darker-charcoal'
+                        }`}
+                      >
+                        [VIEW LIVE DEMO →]
+                      </a>
+                    </motion.div>
+                  )}
                 </div>
 
                 {/* Tech Stack */}
