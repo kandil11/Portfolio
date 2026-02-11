@@ -115,9 +115,14 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`project-card ${project.gridClass} group relative overflow-hidden cursor-pointer`}
+              className={`project-card ${project.gridClass} group relative overflow-hidden ${project.link ? 'cursor-pointer' : ''}`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
+              onClick={() => {
+                if (project.link) {
+                  window.open(project.link, '_blank', 'noopener,noreferrer');
+                }
+              }}
             >
               {/* Background gradient */}
               <div
@@ -143,7 +148,7 @@ export default function Projects() {
               />
 
               {/* Content */}
-              <div className="relative h-full p-8 flex flex-col justify-between">
+              <div className="relative h-full p-8 flex flex-col justify-between z-10">
                 <div>
                   <div className="flex justify-between items-start mb-4">
                     <span className={`mono-label text-${project.color}`}>
@@ -170,17 +175,9 @@ export default function Projects() {
                     {project.description}
                   </motion.p>
 
-                  {/* Live Demo Button - visible on hover if link exists */}
+                  {/* Live Demo Button - always visible if link exists */}
                   {project.link && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{
-                        opacity: hoveredProject === project.id ? 1 : 0,
-                        height: hoveredProject === project.id ? 'auto' : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden mb-4"
-                    >
+                    <div className="mb-4">
                       <a
                         href={project.link}
                         target="_blank"
@@ -195,7 +192,7 @@ export default function Projects() {
                       >
                         [VIEW LIVE DEMO →]
                       </a>
-                    </motion.div>
+                    </div>
                   )}
                 </div>
 
