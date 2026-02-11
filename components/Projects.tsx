@@ -133,12 +133,12 @@ export default function Projects() {
               {/* Border */}
               <div
                 className={`absolute inset-0 border-2 transition-all duration-300 ${hoveredProject === project.id
-                    ? project.color === 'neon-cyan'
-                      ? 'border-neon-cyan'
-                      : project.color === 'neon-magenta'
-                        ? 'border-neon-magenta'
-                        : 'border-neon-yellow'
-                    : 'border-white/10'
+                  ? project.color === 'neon-cyan'
+                    ? 'border-neon-cyan'
+                    : project.color === 'neon-magenta'
+                      ? 'border-neon-magenta'
+                      : 'border-neon-yellow'
+                  : 'border-white/10'
                   }`}
               />
 
@@ -187,10 +187,10 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className={`inline-block px-4 py-2 border-2 mono-label text-xs transition-all duration-300 hover:scale-105 ${project.color === 'neon-cyan'
-                            ? 'border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-darker-charcoal'
-                            : project.color === 'neon-magenta'
-                              ? 'border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-darker-charcoal'
-                              : 'border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-darker-charcoal'
+                          ? 'border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-darker-charcoal'
+                          : project.color === 'neon-magenta'
+                            ? 'border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-darker-charcoal'
+                            : 'border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-darker-charcoal'
                           }`}
                       >
                         [VIEW LIVE DEMO →]
@@ -205,12 +205,12 @@ export default function Projects() {
                     <span
                       key={i}
                       className={`mono-label text-xs px-3 py-1 border transition-colors duration-300 ${hoveredProject === project.id
-                          ? project.color === 'neon-cyan'
-                            ? 'border-neon-cyan text-neon-cyan'
-                            : project.color === 'neon-magenta'
-                              ? 'border-neon-magenta text-neon-magenta'
-                              : 'border-neon-yellow text-neon-yellow'
-                          : 'border-white/20 text-gray-400'
+                        ? project.color === 'neon-cyan'
+                          ? 'border-neon-cyan text-neon-cyan'
+                          : project.color === 'neon-magenta'
+                            ? 'border-neon-magenta text-neon-magenta'
+                            : 'border-neon-yellow text-neon-yellow'
+                        : 'border-white/20 text-gray-400'
                         }`}
                     >
                       {tech}
@@ -227,10 +227,10 @@ export default function Projects() {
                 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
                 className={`absolute inset-0 pointer-events-none ${project.color === 'neon-cyan'
-                    ? 'bg-gradient-to-r from-transparent via-neon-cyan/10 to-transparent'
-                    : project.color === 'neon-magenta'
-                      ? 'bg-gradient-to-r from-transparent via-neon-magenta/10 to-transparent'
-                      : 'bg-gradient-to-r from-transparent via-neon-yellow/10 to-transparent'
+                  ? 'bg-gradient-to-r from-transparent via-neon-cyan/10 to-transparent'
+                  : project.color === 'neon-magenta'
+                    ? 'bg-gradient-to-r from-transparent via-neon-magenta/10 to-transparent'
+                    : 'bg-gradient-to-r from-transparent via-neon-yellow/10 to-transparent'
                   }`}
               />
             </motion.div>
