@@ -120,29 +120,26 @@ export default function Projects() {
               onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Background gradient */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br opacity-10 transition-opacity duration-500 ${
-                  hoveredProject === project.id ? 'opacity-20' : ''
-                } ${
-                  project.color === 'neon-cyan' 
+              <div
+                className={`absolute inset-0 bg-gradient-to-br opacity-10 transition-opacity duration-500 ${hoveredProject === project.id ? 'opacity-20' : ''
+                  } ${project.color === 'neon-cyan'
                     ? 'from-cyan-500 to-blue-500'
                     : project.color === 'neon-magenta'
-                    ? 'from-magenta-500 to-purple-500'
-                    : 'from-yellow-500 to-orange-500'
-                }`}
+                      ? 'from-magenta-500 to-purple-500'
+                      : 'from-yellow-500 to-orange-500'
+                  }`}
               />
 
               {/* Border */}
-              <div 
-                className={`absolute inset-0 border-2 transition-all duration-300 ${
-                  hoveredProject === project.id
+              <div
+                className={`absolute inset-0 border-2 transition-all duration-300 ${hoveredProject === project.id
                     ? project.color === 'neon-cyan'
                       ? 'border-neon-cyan'
                       : project.color === 'neon-magenta'
-                      ? 'border-neon-magenta'
-                      : 'border-neon-yellow'
+                        ? 'border-neon-magenta'
+                        : 'border-neon-yellow'
                     : 'border-white/10'
-                }`}
+                  }`}
               />
 
               {/* Content */}
@@ -189,13 +186,12 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className={`inline-block px-4 py-2 border-2 mono-label text-xs transition-all duration-300 hover:scale-105 ${
-                          project.color === 'neon-cyan'
+                        className={`inline-block px-4 py-2 border-2 mono-label text-xs transition-all duration-300 hover:scale-105 ${project.color === 'neon-cyan'
                             ? 'border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-darker-charcoal'
                             : project.color === 'neon-magenta'
-                            ? 'border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-darker-charcoal'
-                            : 'border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-darker-charcoal'
-                        }`}
+                              ? 'border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-darker-charcoal'
+                              : 'border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-darker-charcoal'
+                          }`}
                       >
                         [VIEW LIVE DEMO →]
                       </a>
@@ -208,15 +204,14 @@ export default function Projects() {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className={`mono-label text-xs px-3 py-1 border transition-colors duration-300 ${
-                        hoveredProject === project.id
+                      className={`mono-label text-xs px-3 py-1 border transition-colors duration-300 ${hoveredProject === project.id
                           ? project.color === 'neon-cyan'
                             ? 'border-neon-cyan text-neon-cyan'
                             : project.color === 'neon-magenta'
-                            ? 'border-neon-magenta text-neon-magenta'
-                            : 'border-neon-yellow text-neon-yellow'
+                              ? 'border-neon-magenta text-neon-magenta'
+                              : 'border-neon-yellow text-neon-yellow'
                           : 'border-white/20 text-gray-400'
-                      }`}
+                        }`}
                     >
                       {tech}
                     </span>
@@ -231,13 +226,12 @@ export default function Projects() {
                   x: hoveredProject === project.id ? '100%' : '-100%',
                 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className={`absolute inset-0 pointer-events-none ${
-                  project.color === 'neon-cyan'
+                className={`absolute inset-0 pointer-events-none ${project.color === 'neon-cyan'
                     ? 'bg-gradient-to-r from-transparent via-neon-cyan/10 to-transparent'
                     : project.color === 'neon-magenta'
-                    ? 'bg-gradient-to-r from-transparent via-neon-magenta/10 to-transparent'
-                    : 'bg-gradient-to-r from-transparent via-neon-yellow/10 to-transparent'
-                }`}
+                      ? 'bg-gradient-to-r from-transparent via-neon-magenta/10 to-transparent'
+                      : 'bg-gradient-to-r from-transparent via-neon-yellow/10 to-transparent'
+                  }`}
               />
             </motion.div>
           ))}
