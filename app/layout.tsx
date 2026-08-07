@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Space_Mono } from "next/font/google";
+import { Inter, Outfit, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -8,9 +8,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const playfair = Playfair_Display({ 
+const outfit = Outfit({ 
   subsets: ["latin"],
-  variable: '--font-playfair',
+  variable: '--font-outfit',
   display: 'swap',
 });
 
@@ -39,10 +39,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${spaceMono.variable} font-sans antialiased bg-darker-charcoal text-white overflow-x-hidden`}
+        className={`${inter.variable} ${outfit.variable} ${spaceMono.variable} font-sans antialiased bg-background text-on-background overflow-x-hidden`}
       >
         {children}
       </body>
     </html>
   );
 }
+

@@ -9,25 +9,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'neon-cyan': '#00ffff',
-        'neon-magenta': '#ff00ff',
-        'neon-yellow': '#ffff00',
-        'deep-charcoal': '#1a1a1a',
-        'darker-charcoal': '#0f0f0f',
+        // Minimal Teal Glassmorphism Palette
+        'background': '#0a0a0a',
+        'surface': '#121212',
+        
+        // High contrast text
+        'on-background': '#ffffff', // White for headings
+        'on-surface': '#f4f4f5', // Off-white for body text
+        'on-surface-variant': '#a1a1aa', // Gray for muted text
+        
+        // Glass settings (White borders/fills)
+        'glass-fill': 'rgba(255, 255, 255, 0.03)',
+        'glass-stroke': 'rgba(255, 255, 255, 0.08)',
+        'glass-hover': 'rgba(255, 255, 255, 0.08)',
+        'glass-highlight': 'rgba(255, 255, 255, 0.15)',
+        
+        // Vibrant Accents (Teal as main, with complementary colors)
+        'primary': '#14b8a6', // Teal
+        'primary-container': '#14b8a6',
+        'on-primary-container': '#ffffff',
+        
+        'secondary': '#8b5cf6', // Violet
+        'secondary-container': '#8b5cf6',
+        
+        'tertiary': '#f59e0b', // Amber
+        'tertiary-container': '#f59e0b',
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
-        'mono': ['Space Mono', 'monospace'],
-        'sans': ['Inter', 'sans-serif'],
+        // Map serif to our new Outfit heading font so we don't have to refactor every component
+        'serif': ['var(--font-outfit)', 'sans-serif'],
+        'sans': ['var(--font-inter)', 'sans-serif'],
+        'mono': ['var(--font-space-mono)', 'monospace'],
+        'heading': ['var(--font-outfit)', 'sans-serif'],
       },
       animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-10px)' },
         }
       }
     },

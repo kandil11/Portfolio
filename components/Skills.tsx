@@ -2,44 +2,47 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import GlassCard from './ui/GlassCard';
+
+import { Zap, Globe, Database, Brain } from 'lucide-react';
 
 const skillCategories = [
   {
     category: 'Languages',
-    icon: '⚡',
+    icon: <Zap className="w-8 h-8" />,
     skills: [
-      { name: 'Python', level: 90, color: 'neon-cyan' },
-      { name: 'JavaScript', level: 85, color: 'neon-yellow' },
-      { name: 'C++', level: 80, color: 'neon-magenta' },
-      { name: 'Java', level: 75, color: 'neon-cyan' },
-      { name: 'SQL', level: 85, color: 'neon-yellow' },
+      { name: 'Python', level: 90, color: 'primary-container' },
+      { name: 'JavaScript', level: 85, color: 'secondary-container' },
+      { name: 'C++', level: 80, color: 'tertiary-container' },
+      { name: 'Java', level: 75, color: 'primary-container' },
+      { name: 'SQL', level: 85, color: 'secondary-container' },
     ],
   },
   {
     category: 'Web Development',
-    icon: '🌐',
+    icon: <Globe className="w-8 h-8" />,
     skills: [
-      { name: 'React.js', level: 85, color: 'neon-cyan' },
-      { name: 'Node.js', level: 80, color: 'neon-yellow' },
-      { name: 'HTML/CSS', level: 90, color: 'neon-magenta' },
-      { name: 'Tailwind CSS', level: 85, color: 'neon-cyan' },
+      { name: 'React.js', level: 85, color: 'primary-container' },
+      { name: 'Node.js', level: 80, color: 'secondary-container' },
+      { name: 'HTML/CSS', level: 90, color: 'tertiary-container' },
+      { name: 'Tailwind CSS', level: 85, color: 'primary-container' },
     ],
   },
   {
     category: 'Databases',
-    icon: '💾',
+    icon: <Database className="w-8 h-8" />,
     skills: [
-      { name: 'MongoDB', level: 80, color: 'neon-cyan' },
-      { name: 'MySQL', level: 85, color: 'neon-yellow' },
+      { name: 'MongoDB', level: 80, color: 'primary-container' },
+      { name: 'MySQL', level: 85, color: 'secondary-container' },
     ],
   },
   {
     category: 'Core Concepts',
-    icon: '🧠',
+    icon: <Brain className="w-8 h-8" />,
     skills: [
-      { name: 'Data Structures', level: 90, color: 'neon-magenta' },
-      { name: 'Algorithms', level: 85, color: 'neon-cyan' },
-      { name: 'Cloud Computing', level: 75, color: 'neon-yellow' },
+      { name: 'Data Structures', level: 90, color: 'tertiary-container' },
+      { name: 'Algorithms', level: 85, color: 'primary-container' },
+      { name: 'Cloud Computing', level: 75, color: 'secondary-container' },
     ],
   },
 ];
@@ -71,17 +74,17 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <div className="mono-label text-neon-yellow mb-4">[CAPABILITIES]</div>
-          <h2 className="font-serif text-6xl md:text-8xl font-bold">
-            Skills<span className="text-neon-magenta">.</span>
+          <div className="font-mono text-sm tracking-widest text-tertiary-container mb-4 font-bold uppercase">Capabilities</div>
+          <h2 className="font-serif text-5xl md:text-7xl font-bold">
+            Skills<span className="text-primary-container">.</span>
           </h2>
         </motion.div>
 
         {/* Technical Skills - Asymmetric Layout */}
-        <div className="mb-20">
-          <h3 className="mono-label text-neon-cyan mb-8">[TECHNICAL]</h3>
+        <div className="mb-24">
+          <h3 className="font-mono text-sm tracking-widest text-primary-container mb-8 font-bold uppercase">Technical</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, catIndex) => (
               <motion.div
                 key={catIndex}
@@ -89,55 +92,56 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: catIndex * 0.1 }}
                 viewport={{ once: true }}
-                className="space-y-6"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">{category.icon}</span>
-                  <h4 className="text-2xl font-bold">{category.category}</h4>
-                </div>
+                <GlassCard className="p-8 h-full">
+                  <div className="flex items-center gap-4 mb-8 border-b border-glass-stroke pb-4">
+                    <span className="text-3xl">{category.icon}</span>
+                    <h4 className="text-2xl font-serif font-bold">{category.category}</h4>
+                  </div>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div
-                      key={skillIndex}
-                      className="group"
-                      onMouseEnter={() => setHoveredSkill(skill.name)}
-                      onMouseLeave={() => setHoveredSkill(null)}
-                    >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="mono-label text-xs text-gray-500">
-                          {skill.level}%
-                        </span>
+                  <div className="space-y-6">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div
+                        key={skillIndex}
+                        className="group"
+                        onMouseEnter={() => setHoveredSkill(skill.name)}
+                        onMouseLeave={() => setHoveredSkill(null)}
+                      >
+                        <div className="flex justify-between items-center mb-3">
+                          <span className="font-sans font-medium text-on-surface">{skill.name}</span>
+                          <span className="font-mono text-xs tracking-widest text-on-surface-variant font-bold">
+                            {skill.level}%
+                          </span>
+                        </div>
+                        
+                        {/* Skill bar */}
+                        <div className="h-2 rounded-full bg-glass-stroke overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            transition={{ duration: 1, delay: catIndex * 0.1 + skillIndex * 0.05 }}
+                            viewport={{ once: true }}
+                            className={`h-full relative rounded-full ${
+                              skill.color === 'primary-container'
+                                ? 'bg-primary-container'
+                                : skill.color === 'secondary-container'
+                                ? 'bg-secondary-container'
+                                : 'bg-tertiary-container'
+                            }`}
+                          >
+                            {hoveredSkill === skill.name && (
+                              <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="absolute inset-0 bg-white/30"
+                              />
+                            )}
+                          </motion.div>
+                        </div>
                       </div>
-                      
-                      {/* Skill bar */}
-                      <div className="h-2 bg-white/10 overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: catIndex * 0.1 + skillIndex * 0.05 }}
-                          viewport={{ once: true }}
-                          className={`h-full relative ${
-                            skill.color === 'neon-cyan'
-                              ? 'bg-neon-cyan'
-                              : skill.color === 'neon-magenta'
-                              ? 'bg-neon-magenta'
-                              : 'bg-neon-yellow'
-                          }`}
-                        >
-                          {hoveredSkill === skill.name && (
-                            <motion.div
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              className="absolute inset-0 bg-white/20"
-                            />
-                          )}
-                        </motion.div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -149,8 +153,9 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="mb-24"
         >
-          <h3 className="mono-label text-neon-magenta mb-8">[SOFT SKILLS]</h3>
+          <h3 className="font-mono text-sm tracking-widest text-secondary-container mb-8 font-bold uppercase">Soft Skills</h3>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {softSkills.map((skill, index) => (
@@ -161,9 +166,10 @@ export default function Skills() {
                 transition={{ duration: 0.3, delay: index * 0.03 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, rotate: 2 }}
-                className="bento-item text-center py-6"
               >
-                <span className="text-sm">{skill}</span>
+                <GlassCard className="text-center py-6 px-4 h-full flex items-center justify-center cursor-default hover:bg-white/5 transition-colors">
+                  <span className="font-mono text-sm">{skill}</span>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -175,29 +181,43 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-20 border-2 border-neon-yellow/30 hover:border-neon-yellow transition-all duration-300 p-8"
         >
-          <h3 className="mono-label text-neon-yellow mb-6">[CERTIFICATIONS]</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="text-xl font-bold mb-2">Amazon Web Services</h4>
-              <ul className="text-gray-400 space-y-1 ml-4">
-                <li>• Introduction to Cloud 101</li>
-                <li>• Getting Started with Networking</li>
-                <li>• Getting Started with Storage</li>
-                <li>• Getting Started with Compute</li>
-              </ul>
+          <GlassCard className="p-10 border-tertiary-container/30 hover:border-tertiary-container transition-all duration-500">
+            <h3 className="font-mono text-sm tracking-widest text-tertiary-container mb-8 font-bold uppercase">Certifications</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h4 className="text-2xl font-serif font-bold mb-4">Amazon Web Services</h4>
+                <ul className="text-on-surface-variant space-y-3 font-sans">
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> Introduction to Cloud 101
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> Getting Started with Networking
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> Getting Started with Storage
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> Getting Started with Compute
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-2xl font-serif font-bold mb-4">Additional Training</h4>
+                <ul className="text-on-surface-variant space-y-3 font-sans">
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> Mahara Tech - MongoDB
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-tertiary-container text-xs">◆</span> NTI - Data Analytics (120 hours)
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h4 className="text-xl font-bold mb-2">Additional Training</h4>
-              <ul className="text-gray-400 space-y-1 ml-4">
-                <li>• Mahara Tech - MongoDB</li>
-                <li>• NTI - Data Analytics (120 hours)</li>
-              </ul>
-            </div>
-          </div>
+          </GlassCard>
         </motion.div>
       </div>
     </section>
   );
 }
+

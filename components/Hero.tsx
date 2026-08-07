@@ -2,6 +2,9 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import GlassCard from './ui/GlassCard';
+import Button from './ui/Button';
+import { Download } from 'lucide-react';
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -14,15 +17,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Floating Background Element - Photo placeholder */}
-      <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <div className="w-[600px] h-[600px] rounded-full bg-gradient-to-br from-neon-cyan/10 to-neon-magenta/10 blur-3xl animate-float" />
-      </motion.div>
-
+    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Main Content */}
       <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-start lg:items-center">
@@ -32,30 +27,30 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mono-label text-neon-cyan mb-6"
+              className="font-mono text-sm tracking-widest text-primary-container mb-6 font-bold uppercase"
             >
-              [COMPUTER SCIENCE STUDENT • MSA UNIVERSITY]
+              Computer Science Student • MSA University
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-serif massive-text mb-8 max-w-full overflow-hidden"
+              className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 max-w-full overflow-hidden leading-tight font-bold"
             >
               Muhammad
               <br />
-              <span className="text-neon-cyan neon-glow">Kandil</span>
+              <span className="text-primary-container">Kandil</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl lg:text-xl xl:text-2xl text-gray-300 max-w-xl lg:max-w-lg xl:max-w-2xl leading-relaxed mb-12"
+              className="text-lg md:text-xl text-on-surface-variant max-w-xl lg:max-w-lg xl:max-w-2xl leading-relaxed mb-12 font-sans"
             >
               Full-stack developer crafting{' '}
-              <span className="text-neon-magenta font-bold">award-winning</span>{' '}
+              <span className="text-secondary-container font-bold">award-winning</span>{' '}
               digital experiences. Specializing in algorithmic visualization,
               web platforms, and data-driven solutions.
             </motion.p>
@@ -64,19 +59,18 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap gap-6"
+              className="flex flex-wrap gap-4"
             >
-              <a
-                href="#projects"
-                className="magnetic-btn px-8 py-4 border-2 border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-darker-charcoal transition-all duration-300 mono-label"
-              >
-                [VIEW PROJECTS]
+              <a href="#projects">
+                <Button variant="primary">VIEW PROJECTS</Button>
               </a>
-              <a
-                href="#contact"
-                className="magnetic-btn px-8 py-4 border-2 border-white/20 hover:border-neon-magenta hover:text-neon-magenta transition-all duration-300 mono-label"
-              >
-                [GET IN TOUCH]
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                <Button variant="glass" className="flex items-center gap-2">
+                  <Download className="w-4 h-4" /> DOWNLOAD CV
+                </Button>
+              </a>
+              <a href="#contact">
+                <Button variant="glass">GET IN TOUCH</Button>
               </a>
             </motion.div>
           </div>
@@ -90,25 +84,25 @@ export default function Hero() {
               className="space-y-6"
             >
               {/* Award Card */}
-              <div className="p-6 border-2 border-neon-cyan/30 hover:border-neon-cyan transition-all duration-300 hover-reveal">
-                <div className="mono-label text-neon-cyan mb-2">[ACHIEVEMENT]</div>
-                <h3 className="text-2xl font-bold mb-2">2nd Place Winner</h3>
-                <p className="text-gray-400">Deep Minds Competition • MSA University</p>
-              </div>
+              <GlassCard className="p-8 transition-transform hover:-translate-y-2">
+                <div className="font-mono text-xs tracking-widest text-primary-container mb-3 uppercase">Achievement</div>
+                <h3 className="text-2xl font-serif font-bold mb-2">2nd Place Winner</h3>
+                <p className="text-on-surface-variant font-sans text-sm">Deep Minds Competition • MSA University</p>
+              </GlassCard>
 
               {/* Location Card */}
-              <div className="p-6 border-2 border-neon-magenta/30 hover:border-neon-magenta transition-all duration-300 hover-reveal">
-                <div className="mono-label text-neon-magenta mb-2">[LOCATION]</div>
-                <h3 className="text-2xl font-bold mb-2">Giza, Egypt</h3>
-                <p className="text-gray-400">Available for remote opportunities</p>
-              </div>
+              <GlassCard className="p-8 transition-transform hover:-translate-y-2">
+                <div className="font-mono text-xs tracking-widest text-secondary-container mb-3 uppercase">Location</div>
+                <h3 className="text-2xl font-serif font-bold mb-2">Giza, Egypt</h3>
+                <p className="text-on-surface-variant font-sans text-sm">Available for remote opportunities</p>
+              </GlassCard>
 
               {/* Graduation Card */}
-              <div className="p-6 border-2 border-white/20 hover:border-white transition-all duration-300 hover-reveal">
-                <div className="mono-label text-white/60 mb-2">[GRADUATION]</div>
-                <h3 className="text-2xl font-bold mb-2">June 2027</h3>
-                <p className="text-gray-400">Bachelor of Computer Science</p>
-              </div>
+              <GlassCard className="p-8 transition-transform hover:-translate-y-2">
+                <div className="font-mono text-xs tracking-widest text-on-surface-variant mb-3 uppercase">Graduation</div>
+                <h3 className="text-2xl font-serif font-bold mb-2">June 2027</h3>
+                <p className="text-on-surface-variant font-sans text-sm">Bachelor of Computer Science</p>
+              </GlassCard>
             </motion.div>
           </div>
         </div>
@@ -121,15 +115,16 @@ export default function Hero() {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
       >
-        <div className="flex flex-col items-center gap-2">
-          <span className="mono-label text-xs text-gray-500">[SCROLL]</span>
+        <div className="flex flex-col items-center gap-4">
+          <span className="font-mono text-xs text-on-surface-variant tracking-widest">SCROLL</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-0.5 h-16 bg-gradient-to-b from-neon-cyan to-transparent"
+            className="w-[1px] h-12 bg-gradient-to-b from-primary-container to-transparent"
           />
         </div>
       </motion.div>
     </section>
   );
 }
+
