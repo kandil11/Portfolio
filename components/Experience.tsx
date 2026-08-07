@@ -6,6 +6,14 @@ import GlassCard from './ui/GlassCard';
 
 const experiences = [
   {
+    year: '2026',
+    title: 'DEPI R4 - Data Science',
+    type: 'TRAINING & PROJECT',
+    description: 'Intensive training in machine learning pipelines, data preprocessing, and predictive analytics. Developed FUNDR as the final graduation project.',
+    skills: ['Machine Learning', 'Data Science', 'Python', 'XGBoost'],
+    color: 'tertiary-container',
+  },
+  {
     year: '2024',
     title: 'NTI - Data Analytics Training',
     type: 'TRAINING',

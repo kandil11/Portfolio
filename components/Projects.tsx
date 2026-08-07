@@ -17,7 +17,7 @@ const projects = [
     year: 'May 2026',
     category: 'NOMINATED - DEEPMINDS 7TH ED',
     gridClass: 'lg:col-span-8 lg:row-span-2',
-    link: 'https://masari-cs.vercel.app/',
+    link: 'https://masari.up.railway.app',
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const projects = [
     year: '2026',
     category: 'DEPI R4 GRADUATION PROJECT',
     gridClass: 'lg:col-span-4 lg:row-span-2',
-    link: 'https://github.com/marc-zaki/FUNDR',
+    link: 'https://github.com/kandil11/FUNDR',
   },
   {
     id: 3,
@@ -41,6 +41,7 @@ const projects = [
     year: '2026',
     category: 'MACHINE LEARNING',
     gridClass: 'lg:col-span-4 lg:row-span-1',
+    link: 'https://github.com/kandil11/Forecastify',
   },
   {
     id: 4,
@@ -52,6 +53,7 @@ const projects = [
     year: '2026',
     category: 'SYSTEM DESIGN',
     gridClass: 'lg:col-span-4 lg:row-span-1',
+    link: 'https://github.com/kandil11/DorMsa',
   },
   {
     id: 5,
