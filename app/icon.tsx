@@ -14,16 +14,17 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 20,
-          background: '#0f0f0f',
+          fontSize: 16,
+          background: '#030712',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#00ffff',
-          fontWeight: 700,
-          fontFamily: 'monospace',
+          color: '#14b8a6',
+          fontWeight: 800,
+          fontFamily: 'sans-serif',
+          borderRadius: '8px',
         }}
       >
         MK
